@@ -15,9 +15,11 @@ $ keytool -genkey -alias partner -keyalg RSA -keystore partner.jks -keysize 2048
 
 ### Export Certificate from Keystore
 ```
-$ keytool -export -alias server -rfc -keystore server.jks -file server.cer
+$ keytool -export -alias server -keystore server.jks -file server.cer
+$ keytool -export -rfc -alias server -keystore server.jks -file server.crt
 
-$ keytool -export -alias partner -rfc -keystore partner.jks -file partner.cer
+$ keytool -export -alias partner -keystore partner.jks -file partner.cer
+$ keytool -export -rfc -alias partner -keystore partner.jks -file partner.crt
 ```
 
 ## Export Private Key from Keystore

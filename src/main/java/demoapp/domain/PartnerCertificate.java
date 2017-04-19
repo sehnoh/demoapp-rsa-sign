@@ -30,16 +30,27 @@ public class PartnerCertificate extends AbstractEntity {
     @Column(name = "certificate", length = 100000)
     private byte[] certificate;
 
-    @Column(name = "cert_file_name")
-    private String certFileName;
+    @Column(name = "version")
+    private String version;
+
+    @Column(name = "serial_number")
+    private String serialNumber;
+
+    @Column(name = "subject")
+    private String subject;
+
+    @Column(name = "issuer")
+    private String issuer;
+
+    @Column(name = "valid_from")
+    private Date validFrom;
+
+    @Column(name = "valid_until")
+    private Date validUntil;
 
     @Column(name = "public_key")
     private String publicKey;
 
-    @Column(name = "valid_from_date")
-    private Date validFromDate;
-
-    @Column(name = "valid_until_date")
-    private Date validUntilDate;
-
+    @Column(name = "sig_algorithm")
+    private String sigAlgorithm;
 }
