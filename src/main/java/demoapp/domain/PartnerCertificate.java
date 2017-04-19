@@ -27,7 +27,7 @@ public class PartnerCertificate extends AbstractEntity {
     private Partner partner;
 
     @Lob
-    @Column(name = "certificate", length = 100000)
+    @Column(name = "certificate", nullable = false)
     private byte[] certificate;
 
     @Column(name = "version")
