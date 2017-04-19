@@ -14,6 +14,9 @@ import javax.validation.constraints.NotNull;
 @RequiredArgsConstructor
 public class ResponseHeader {
 
+    public static final String STATUS_SUCCESS = "success";
+    public static final String STATUS_FAILURE = "failure";
+
     @NonNull
     @NotNull
     private String status;

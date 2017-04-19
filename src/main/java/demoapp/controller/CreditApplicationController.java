@@ -24,7 +24,7 @@ public class CreditApplicationController {
         log.info("message={}", message);
 
         ResponseMessage responseMessage = new ResponseMessage();
-        responseMessage.setHeader(new ResponseHeader("success"));
+        responseMessage.setHeader(new ResponseHeader(ResponseHeader.STATUS_SUCCESS));
         return responseMessage;
     }
 
