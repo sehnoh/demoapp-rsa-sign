@@ -1,14 +1,23 @@
 package demoapp.repository;
 
 import demoapp.domain.PartnerCertificate;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 public interface PartnerCertificateRepository extends JpaRepository<PartnerCertificate, Long> {
 
     @Query("select a from PartnerCertificate a "
-            + "where a.partner.id like ?1 and a.validFrom <= CURRENT_DATE and a.validUntil >= CURRENT_DATE "
+            + "where a.partner.id = ?1 and a.validFrom <= CURRENT_TIMESTAMP and a.validUntil >= CURRENT_TIMESTAMP "
             + "order by a.id desc")
-    PartnerCertificate findOneByPartnerIdAndValidFromLessThanEqualAndValidUntilGreaterThanEqual(Long partnerId);
+    List<PartnerCertificate> findByPartnerIdAndValidDate(Long partnerId, Pageable pageable);
+
+    default PartnerCertificate findOneByPartnerIdAndValidDate(Long partnerId) {
+        List<PartnerCertificate> list = findByPartnerIdAndValidDate(partnerId, new PageRequest(0, 1));
+        return list.isEmpty() ? null : list.get(0);
+    }
 
 }
