@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Error {
+public class ErrorDTO {
 
     @NonNull
     @NotNull

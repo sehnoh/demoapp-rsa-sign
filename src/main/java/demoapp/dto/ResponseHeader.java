@@ -21,5 +21,5 @@ public class ResponseHeader {
     @NotNull
     private String status;
 
-    private List<Error> errors = new ArrayList<>();
+    private List<ErrorDTO> errors = new ArrayList<>();
 }
