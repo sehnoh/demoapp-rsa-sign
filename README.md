@@ -22,7 +22,7 @@ $ keytool -export -alias partner -keystore partner.jks -file partner.cer
 $ keytool -export -rfc -alias partner -keystore partner.jks -file partner.crt
 ```
 
-## Export Private Key from Keystore
+### Export Private Key from Keystore
 
 Export from keytool's proprietary format (called "JKS") to standardized format PKCS #12:
 ```
