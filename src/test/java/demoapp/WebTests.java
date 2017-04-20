@@ -6,6 +6,7 @@ import demoapp.dto.RequestHeader;
 import demoapp.dto.RequestMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ public class WebTests {
     public void setUp() {
     }
 
+    @Ignore
     @Test
     public void testWeb() throws JsonProcessingException {
 

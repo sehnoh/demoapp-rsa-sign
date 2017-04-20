@@ -32,9 +32,6 @@ public class PartnerCertificateRepositoryTest {
     TestEntityManager entityManager;
 
     @Autowired
-    PartnerRepository partnerRepository;
-
-    @Autowired
     PartnerCertificateRepository partnerCertificateRepository;
 
     byte[] certBytes;
@@ -67,17 +64,12 @@ public class PartnerCertificateRepositoryTest {
     public void testPartnerCertificate() {
         Partner partner = new Partner();
         partner.setName("Partner1");
-        partnerRepository.save(partner);
+        entityManager.persist(partner);
         log.debug("partner.saved={}", partner);
 
         assertNotNull(partner.getId());
         assertEquals("Partner1", partner.getName());
-
         Long parterId = partner.getId();
-
-        Partner partnerFound = partnerRepository.findOne(parterId);
-        log.debug("partner.found={}", partnerFound);
-        assertEquals("Partner1", partnerFound.getName());
 
         PartnerCertificate partnerCertificate = new PartnerCertificate();
         partnerCertificate.setPartner(partner);

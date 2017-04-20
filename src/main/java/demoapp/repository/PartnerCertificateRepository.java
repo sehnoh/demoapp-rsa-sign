@@ -15,6 +15,8 @@ public interface PartnerCertificateRepository extends JpaRepository<PartnerCerti
             + "where a.partner.id = ?1 and a.validFrom <= CURRENT_TIMESTAMP and a.validUntil >= CURRENT_TIMESTAMP")
     List<PartnerCertificate> findByPartnerIdAndValidDate(Long partnerId, Pageable pageable);
 
+
+
     default PartnerCertificate findOneByPartnerIdAndValidDate(Long partnerId) {
         List<PartnerCertificate> list =
                 findByPartnerIdAndValidDate(partnerId, new PageRequest(0, 1, Sort.Direction.DESC, "id"));
