@@ -63,7 +63,7 @@ public class CreditApplicationController {
 
             ResponseHeader responseHeader = new ResponseHeader(ResponseHeader.STATUS_SUCCESS);
             responseMessage.setHeader(responseHeader);
-            responseMessage.setPayload(Base64.getEncoder().encode(responsePayload.getBytes("UTF-8")));
+            responseMessage.setPayload(Base64.getEncoder().encodeToString(responsePayload.getBytes("UTF-8")));
 
             // TODO: add signature
 
